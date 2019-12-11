@@ -1,0 +1,19 @@
+{
+  "name": "devbin-server",
+  "version": "1.0.0",
+  "description": "Server part of the DevBin application",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/slaweykow/DevBin.git"
+  },
+  "author": "Georgi Slaveykov <slaweykow@protonmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/slaweykow/DevBin/issues"
+  },
+  "homepage": "https://github.com/slaweykow/DevBin#readme"
+}

@@ -1,0 +1,11 @@
+nav {
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #bfbfbf;
+}
+
+.nav-links {
+    float: right;
+    margin-right: 5%;
+}
