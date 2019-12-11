@@ -8,7 +8,7 @@ class HomeComponent extends Component {
     render() {
         return (
             <div className="container">
-                <h1>Home page</h1>
+                <h2>Note: You are not logged in. You will not be able to edit or delete anything you paste.</h2>
             </div>
         );
     }

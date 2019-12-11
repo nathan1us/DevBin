@@ -2,10 +2,75 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background: #bfbfbf;
+    padding: 20px 0 20px 0;
 }
 
 .nav-links {
+    color: var(--font-color);
     float: right;
     margin-right: 5%;
+}
+
+.nav-separator {
+    display: inline;
+}
+
+.nav-link {
+    padding: 0 10px 0 10px;
+}
+
+.nav-link.selected {
+    text-decoration: underline;
+}
+
+.nav-logo {
+    position: relative;
+    white-space: nowrap;
+    font-weight: 600;
+}
+
+.nav-logo::before {
+    content: "> "
+}
+
+.nav-logo::after {
+    content: "";
+    -webkit-animation: cursor .89s infinite;
+    animation: cursor .89s infinite;
+    background: var(--primary-color);
+    border-radius: 0;
+    display: inline-block;
+    height: 1em;
+    margin-left: .2em;
+    width: 3px;
+    bottom: -2px;
+    position: relative
+}
+
+@-webkit-keyframes cursor {
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+
+@keyframes cursor {
+    0% {
+        opacity: 0
+    }
+    50% {
+        opacity: 1
+    }
+    to {
+        opacity: 0
+    }
+}
+
+.nav-link {
+    fill: antiquewhite;
 }

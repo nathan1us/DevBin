@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-class AboutComponent extends Component {
+class DashboardComponent extends Component {
     constructor(props) {
         super(props);
     }
@@ -8,10 +8,10 @@ class AboutComponent extends Component {
     render() {
         return (
             <div className="container">
-                <h1>About</h1>
+                <h1>Dashboard</h1>
             </div>
         );
     }
 }
 
-export default AboutComponent;
+export default DashboardComponent;
