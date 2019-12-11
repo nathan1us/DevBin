@@ -13,9 +13,7 @@ import {
 function App() {
   return (
     <BrowserRouter>
-
       <NavbarComponent />
-
       <Switch>
         <Route path="/" exact component={HomeComponent} />
         <Route path="/about" component={AboutComponent} />
