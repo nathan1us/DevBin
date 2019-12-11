@@ -2,6 +2,8 @@
 
 **Code sharing made simple.**
 
+![Picture of the Home page](https://i.imgur.com/DbqLgxI.png)
+
 ## About
 
 DevBin is a web application for sharing code between developers. It aims to ease the work of CompSci students and developers.
