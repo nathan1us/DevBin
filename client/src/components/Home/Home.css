@@ -38,6 +38,7 @@ textarea {
 }
 
 hr {
+    margin: 25px 0 25px 0;
     border: 2px dashed var(--secondary-color);
     border-style: none none dashed; 
 }
