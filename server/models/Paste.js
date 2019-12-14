@@ -2,7 +2,7 @@ const { Schema, model } = require('mongoose');
 
 const pasteSchema = new Schema({
     author: {
-        type: Schema.Types.ObjectId,
+        type: Schema.Types.String,
         ref: 'User'
     },
     content: {

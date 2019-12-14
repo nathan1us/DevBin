@@ -15,4 +15,5 @@ module.exports = (app) => {
     });
 
     app.use('/api/user', routes.user);
+    app.use('/api/pastes', routes.paste);
 }   
