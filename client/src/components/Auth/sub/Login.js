@@ -1,9 +1,15 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../../../App';
+import AuthService from '../../../services/Auth';
+
 const Login = props => {
-    const [username, setUsername] = useState('');
-    const [password, setPassword] = useState('');
+    const [username, setLoginUsername] = useState('');
+    const [password, setLoginPassword] = useState('');
+    const [errors, setErrors] = useState([]);
+
+    const { setAuthLevel, setIsLogged, setPastes, setUsername } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -12,8 +18,21 @@ const Login = props => {
             password
         }
 
-        console.log('Data', data);
-        console.log(`Login form submitted: ${username} - ${password}`);
+        AuthService.login(data)
+            .then((res) => {
+                if (res.hasOwnProperty('authLevel') && res.hasOwnProperty('username')) {
+                    setIsLogged(true);
+                    setUsername(res.username);
+                    setPastes(res.pastes);
+
+                    props.history.push('/dashboard');
+                } else {
+                    setErrors([res]);
+                }
+            })
+            .catch(err => {
+                console.log(err);
+            });
     }
 
     return (
@@ -21,10 +40,10 @@ const Login = props => {
             <h1>Login page</h1>
 
             <label htmlFor="login-username">Username</label>
-            <input name="username" id="login-username" value={username} onChange={(e) => setUsername(e.target.value)} />
+            <input name="username" id="login-username" value={username} onChange={(e) => setLoginUsername(e.target.value)} />
 
             <label htmlFor="login-password">Password</label>
-            <input name="password" type="password" id="login-password" value={password} onChange={(e) => setPassword(e.target.value)} />
+            <input name="password" type="password" id="login-password" value={password} onChange={(e) => setLoginPassword(e.target.value)} />
 
             <button type="submit" className="btn-submit">Login</button>
             <Link to="/register" className="form-link">Don't have an account?</Link>

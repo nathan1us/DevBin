@@ -1,6 +1,9 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+import { AuthContext } from '../../../App';
+import AuthService from '../../../services/Auth';
+
 const Register = props => {
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
@@ -11,12 +14,22 @@ const Register = props => {
 
         const data = {
             username,
-            password,
-            repeatPassword
+            password
         }
 
         // console.log('Data', data);
-        // console.log(`Register form submitted: ${username} - ${password} - ${repeatPassword}`);
+        console.log(`Register form submitted: ${username} - ${password} - ${repeatPassword}`);
+
+        AuthService.register(data)
+        .then((res) => {
+            if (typeof res === 'object') {
+                props.history.push('/login');
+            }
+            
+        })
+        .catch(err => {
+            console.log(err);
+        });
     }
 
 
