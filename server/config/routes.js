@@ -6,7 +6,7 @@ const routes = require('../routes');
 
 module.exports = (app) => {
     app.get('/authorize', (req, res) => {
-        const token = req.cookies[config.authCookie.name];
+        const token = req.cookies[config.authCookie];
 
         jwt.verifyToken(token)
             .then(({ id }) => User.findById(id))

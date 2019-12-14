@@ -22,7 +22,12 @@ const userSchema = new Schema({
             type: Schema.Types.ObjectId,
             ref: 'Paste'
         }
-    ]
+    ],
+    joined: {
+        type: Date,
+        required: true,
+        default: Date.now
+    }
 });
 
 userSchema.methods = {
