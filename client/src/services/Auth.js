@@ -1,4 +1,4 @@
-const userService = {
+const AuthService = {
     auth: () => {
         return fetch('http://localhost:8080/authorize', {
             method: 'GET',
@@ -41,4 +41,4 @@ const userService = {
     }
 }
 
-export default userService;
+export default AuthService;
