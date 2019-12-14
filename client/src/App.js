@@ -6,6 +6,7 @@ import HomeComponent from './components/Home/Home';
 import AboutComponent from './components/About/About';
 import FAQComponent from './components/FAQ/FAQ';
 import DashboardComponent from './components/Dashboard/Dashboard';
+import AuthComponent from './components/Auth/Auth';
 
 import {
   Route,
@@ -22,6 +23,9 @@ function App() {
         <Route path="/about" component={AboutComponent} />
         <Route path="/faq" component={FAQComponent} />
         <Route path="/dashboard" component={DashboardComponent} />
+
+        <Route path="/login" component={AuthComponent} />
+        <Route path="/register" component={AuthComponent} />
       </Switch>
     </BrowserRouter>
   );

@@ -22,7 +22,6 @@ class DashboardComponent extends Component {
                 <p>DevBin is currently used by <em>[number]</em> registered developers and is the home to <em>[number]</em> pieces of code.</p>
 
                 <Link to="/pastes/:id" className="db-link">User management</Link> | <Link to="/pastes/:id" className="db-link">Admin management</Link>
-
             </div>
         );
     }
