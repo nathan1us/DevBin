@@ -16,16 +16,13 @@ const Register = props => {
             username,
             password
         }
-
-        // console.log('Data', data);
-        console.log(`Register form submitted: ${username} - ${password} - ${repeatPassword}`);
-
+        
         AuthService.register(data)
         .then((res) => {
             if (typeof res === 'object') {
                 props.history.push('/login');
             }
-            
+
         })
         .catch(err => {
             console.log(err);
