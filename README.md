@@ -12,7 +12,14 @@ Built using the MERN stack, serving as a final project (exam) for the [React.JS]
 
 ## How to run
 
-TODO
+1. Clone the repository
+
+2. Navigate to the root folder of the project, containing the sub-folders `client` and `server`
+
+3. Run `npm install` from a CLI of your choice
+
+4. Run `npm start` from a CLI of your choice
+
 
 ## License
 
