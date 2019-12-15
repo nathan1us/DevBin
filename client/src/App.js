@@ -13,6 +13,9 @@ import FAQComponent from './components/FAQ/FAQ';
 import HomeComponent from './components/Home/Home';
 import NavbarComponent from './components/Navbar/Navbar';
 
+import PasteComponent from './components/Paste/Paste';
+import UserPastesComponent from './components/Dashboard/sub/UserPastes';
+
 import AuthService from './services/Auth';
 
 export const AuthContext = createContext({ pastes: [], authLevel: 0, isLogged: false, username: '' });
@@ -34,7 +37,8 @@ function App() {
           setPastes(user.pastes);
           setJoined(user.joined);
         }
-      });
+      })
+      .catch(err => console.log(err));
   })
 
   return (
@@ -45,7 +49,12 @@ function App() {
           <Route path="/" exact component={HomeComponent} />
           <Route path="/about" component={AboutComponent} />
           <Route path="/faq" component={FAQComponent} />
+
           <Route path="/dashboard" component={DashboardComponent} />
+          <Route path="/pastes/:username" component={UserPastesComponent} />
+
+          <Route path="/edit/:id" component={PasteComponent} />
+          <Route path="/view/:id" component={PasteComponent} />
 
           <Route path="/login" component={AuthComponent} />
           <Route path="/register" component={AuthComponent} />

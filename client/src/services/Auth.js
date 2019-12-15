@@ -38,6 +38,15 @@ const AuthService = {
         })
         .then(res => res.text())
         .catch(err => console.error(err));
+    },
+    edit: (username, data) => {
+        return fetch(`http://localhost:8080/api/user/${username}`, {
+            method: 'PUT',
+            body: JSON.stringify(data),
+            credentials: 'include'
+        })
+        .then(res => res.status === 200 ? res.json() : res.text())
+        .catch(err => console.error(err));
     }
 }
 

@@ -30,39 +30,26 @@ const Dashboard = props => {
                     setUsername('');
                     setPastes([]);
 
-                    props.history.push('/');
+                    window.location.reload(false);
                 }
             })
             .catch(err => console.error(err));
     }
 
-    const pastesUrl = `/pastes/${username}`;
-
     return (
         <div className="container db">
-            {isLogged ?
+            {username !== '' ?
                 <React.Fragment>
                     <h1>Welcome {username}!</h1>
-                    <p>You have pasted <Link to={pastesUrl} className="db-link">{pastes.length}</Link> pieces of code.</p>
-                    <p>You have been a proud member of DevBin for <em>{difference}</em> day(s).</p>
+                    <p>You have pasted <Link to={`/pastes/${username}`} className="db-link">{pastes.length}</Link> pieces of code.</p>
+                    <p>You have been a proud member of DevBin for <em>{difference.toString()}</em> day(s).</p>
+
+                    {authLevel > 1 ? <p>You are an administrator!</p> : '' }
 
                     <button className="btn-submit" onClick={handleLogout}>Logout</button>
                 </React.Fragment>
                 :
                 <Redirect to='/login' />
-            }
-
-            {authLevel > 1 ?
-                <React.Fragment>
-                    <hr />
-
-                    <h1>Administrator zone</h1>
-
-                    <p>DevBin is currently used by <em>[number]</em> registered developers and is the home to <em>[number]</em> pieces of code.</p>
-
-                    <Link to="/pastes/:id" className="db-link">User management</Link> | <Link to="/pastes/:id" className="db-link">Admin management</Link>
-                </React.Fragment>
-                : ''
             }
         </div>
     );
