@@ -22,12 +22,11 @@ const Home = props => {
             content
         }
 
-        console.log(content);
-
         PasteSerice.create(data)
             .then((res) => {
                 if (typeof res === 'object') {
-                    props.history.push('/login');
+                    const pasteId = res._id;
+                    props.history.push(`/view/${pasteId}`);
                 }
 
             })

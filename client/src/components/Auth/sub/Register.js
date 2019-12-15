@@ -16,13 +16,12 @@ const Register = props => {
             username,
             password
         }
-        
+
         AuthService.register(data)
         .then((res) => {
             if (typeof res === 'object') {
                 props.history.push('/login');
             }
-
         })
         .catch(err => {
             console.log(err);
