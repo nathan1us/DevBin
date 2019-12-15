@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useContext } from 'react';
 import { Link, Redirect } from 'react-router-dom';
-import moment from 'moment';
-
-import Login from '../Auth/sub/Login';
 
 import { AuthContext } from '../../App';
 import AuthService from '../../services/Auth';
 
 const Dashboard = props => {
-    const { authLevel, setAuthLevel, isLogged, setIsLogged, username, setUsername, pastes, setPastes, joined } = useContext(AuthContext);
+    const { authLevel, setAuthLevel, setIsLogged, username, setUsername, pastes, setPastes, joined } = useContext(AuthContext);
 
     function dateDiffInDays(a, b) {
         const utc1 = Date.UTC(a.getFullYear(), a.getMonth(), a.getDate());

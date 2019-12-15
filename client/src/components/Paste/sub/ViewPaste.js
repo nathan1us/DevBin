@@ -12,24 +12,24 @@ import PasteSerice from '../../../services/Paste';
 import '../Paste.css';
 
 const ViewPaste = props => {
-    const { authLevel, isLogged, username } = useContext(AuthContext);
+    const { authLevel, username } = useContext(AuthContext);
 
     const [paste, setPaste] = useState({});
     const id = props.pasteId;
 
     useEffect(() => {
         PasteSerice.get(id)
-            .then((res) => {
-                if (typeof res === 'object') {
-                    setPaste(res);
-                } else {
-                    props.history.push('/');
-                }
-            })
-            .then()
-            .catch(err => {
-                console.log(err);
-            });
+        .then((res) => {
+            if (typeof res === 'object') {
+                setPaste(res);
+            } else {
+                props.history.push('/');
+            }
+        })
+        .then()
+        .catch(err => {
+            console.log(err);
+        });
     }, [id]);
 
     const handleDelete = (e) => {

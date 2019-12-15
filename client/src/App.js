@@ -9,7 +9,6 @@ import {
 import AboutComponent from './components/About/About';
 import AuthComponent from './components/Auth/Auth';
 import DashboardComponent from './components/Dashboard/Dashboard';
-import FAQComponent from './components/FAQ/FAQ';
 import HomeComponent from './components/Home/Home';
 import NavbarComponent from './components/Navbar/Navbar';
 
@@ -48,7 +47,6 @@ function App() {
         <Switch>
           <Route path="/" exact component={HomeComponent} />
           <Route path="/about" component={AboutComponent} />
-          <Route path="/faq" component={FAQComponent} />
 
           <Route path="/dashboard" component={DashboardComponent} />
           <Route path="/pastes/:username" component={UserPastesComponent} />

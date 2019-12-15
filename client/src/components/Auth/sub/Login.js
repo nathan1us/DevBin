@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { AuthContext } from '../../../App';
@@ -7,9 +7,8 @@ import AuthService from '../../../services/Auth';
 const Login = props => {
     const [username, setLoginUsername] = useState('');
     const [password, setLoginPassword] = useState('');
-    const [errors, setErrors] = useState([]);
 
-    const { setAuthLevel, setIsLogged, setPastes, setUsername } = useContext(AuthContext);
+    const { setIsLogged, setPastes, setUsername } = useContext(AuthContext);
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -27,7 +26,7 @@ const Login = props => {
 
                     props.history.push('/dashboard');
                 } else {
-                    setErrors([res]);
+                    console.log(res);
                 }
             })
             .catch(err => {

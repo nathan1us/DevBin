@@ -1,14 +1,11 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
-
-import { AuthContext } from '../../../App';
 
 import PasteSerice from '../../../services/Paste';
 
 import '../Paste.css';
 
 const ViewPaste = props => {
-    const { authLevel, isLogged, username } = useContext(AuthContext);
     const id = props.pasteId;
 
     const [captcha, setCaptcha] = useState('');

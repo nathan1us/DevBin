@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import ReCAPTCHA from "react-google-recaptcha";
 
 import { AuthContext } from '../../App';

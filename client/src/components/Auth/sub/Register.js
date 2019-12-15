@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { AuthContext } from '../../../App';
 import AuthService from '../../../services/Auth';
 
 const Register = props => {
