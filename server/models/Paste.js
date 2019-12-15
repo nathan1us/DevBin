@@ -5,6 +5,10 @@ const pasteSchema = new Schema({
         type: Schema.Types.String,
         ref: 'User'
     },
+    title: {
+        type: Schema.Types.String,
+        default: 'Untitled'
+    },
     content: {
         type: Schema.Types.String,
         required: true

@@ -5,7 +5,13 @@ const { jwt } = require('../util');
 console.log(config.authCookie);
 
 module.exports = {
-    get: {},
+    get: (req, res, next) => {
+        const { username } = req.body;
+
+        User.findOne({ username: { $regex: new RegExp(username, "i") } })
+            .then((user) => res.status(200).send(user))
+            .catch(next);
+    },
     post: {
         register: (req, res, next) => {
             const { username, password } = req.body;
@@ -29,6 +35,8 @@ module.exports = {
                 .then((user) => { return Promise.all([user, user.matchPassword(password)]) })
                 .then(([user, match]) => {
                     if (!match) { res.status(401).send('Invalid credentials!'); return; }
+
+                    user.populate('Paste');
 
                     const token = jwt.createToken({ id: user._id });
                     res.cookie(config.authCookie, token).send(user);

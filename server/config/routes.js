@@ -9,7 +9,7 @@ module.exports = (app) => {
         const token = req.cookies[config.authCookie];
 
         jwt.verifyToken(token)
-            .then(({ id }) => User.findById(id))
+            .then(({ id }) => User.findById(id).populate('pastes'))
             .then(user => res.send(user))
             .catch(() => res.status(401).send('Unauthorized!'));
     });
