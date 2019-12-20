@@ -31,7 +31,7 @@ const ViewPaste = props => {
         if (captcha === '' || captcha === null) return;
 
         const data = {
-            title,
+            title: title === '' ? 'Untitled' : title,
             content
         }
 

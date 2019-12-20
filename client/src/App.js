@@ -21,23 +21,25 @@ export const AuthContext = createContext({ pastes: [], authLevel: 0, isLogged: f
 
 function App() {
   const [isLogged, setIsLogged] = useState(false);
-  const [authLevel ,setAuthLevel] = useState(0);
+  const [authLevel, setAuthLevel] = useState(0);
   const [username, setUsername] = useState('');
   const [pastes, setPastes] = useState([]);
   const [joined, setJoined] = useState('');
 
   useEffect(() => {
-    AuthService.auth()
-      .then(user => {
-        if (user.hasOwnProperty('username')) {
-          setIsLogged(true);
-          setAuthLevel(user.authLevel);
-          setUsername(user.username);
-          setPastes(user.pastes);
-          setJoined(user.joined);
-        }
-      })
-      .catch(err => console.log(err));
+    if (isLogged) {
+      AuthService.auth()
+        .then(user => {
+          if (user.hasOwnProperty('username')) {
+            setIsLogged(true);
+            setAuthLevel(user.authLevel);
+            setUsername(user.username);
+            setPastes(user.pastes);
+            setJoined(user.joined);
+          }
+        })
+        .catch(err => console.log(err));
+    }
   })
 
   return (
