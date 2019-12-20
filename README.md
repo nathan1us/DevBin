@@ -2,7 +2,7 @@
 
 **Code sharing made simple.**
 
-![Picture of the Home page](https://i.imgur.com/DbqLgxI.png)
+![Picture of the Home page](https://i.imgur.com/RTBOiii.png)
 
 ## About
 
